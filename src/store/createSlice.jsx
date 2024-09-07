@@ -1,22 +1,17 @@
-import { createStore } from "redux"
+import { combineReducers, createStore } from "redux"
+import { cardReducer } from "../redux/cardSlice"
+import { productReducer } from "../redux/productSlice"
 
-const initalState = [
-    {id:Math.random(), name:"Product1"},
-    {id:Math.random(), name:"Product2"},
-    {id:Math.random(), name:"Product3"},
-]
+const rootReducer = combineReducers({
+    card:cardReducer,
+    product:productReducer
+})
 
-export const store = createStore(function(state=initalState,action) {
-    switch (action.type) {
-        case "add to card":
-            return [...state,action.payload]
-        case "remove from card":
-            return state.filter((index) => index !== action)
-        
-        default:
-            return state
-    }
-},[])
+const store = createStore(rootReducer)
+
+
+export default store
+
 
 
 

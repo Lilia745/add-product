@@ -1,13 +1,14 @@
 const initalCardState = []
 
-function cardReducer(state = initalCardState,action) {
+export function cardReducer(state = initalCardState,action) {
     switch (action.type) {
-        case "add to card":
-            return [...state,action.payload]
-        case "remove from card":
-            return state.filter((index) => index !== action)
+        case "ADD_TO_CARD":
+            return [...state,action.products]
+        case "REMOVE_FROM_CARD":
+            return state.filter((index) => index !== action.payload)
         
         default:
             return state
     }
 }
+

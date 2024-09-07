@@ -3,3 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.item-cont{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  margin: 10px;
+}
